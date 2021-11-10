@@ -15,7 +15,9 @@ public class SmartWatchServiceImpl implements SmartWatchService{
 	 */
     private final Map<Long, SmartWatch> smartwatches = new HashMap<>();
 
-    
+    public double calculateIVA(double amount){
+        return amount * 0.21;
+    }
     public SmartWatchServiceImpl() {
     	// demo data
 		SmartWatch watch1 = new SmartWatch(1L, "Fitbit sense", 

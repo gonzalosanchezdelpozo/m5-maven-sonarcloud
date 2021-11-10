@@ -12,6 +12,10 @@ public class SalaryCalculatorService {
         this.ivaCalculator = ivaCalculator;
     }
 
+    public double calculateIVA(double amount){
+        return amount * 0.21;
+    }
+
     public double calculateSalary(Employee employee){
         double base = 30000;
         base += employee.getAge()* 100;

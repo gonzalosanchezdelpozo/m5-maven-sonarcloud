@@ -43,6 +43,10 @@ public class SmartPhoneServiceImpl implements SmartPhoneService{
     	smartphones.put(3L, phone3);
 	}
 
+	public double calculateIVA(double amount){
+		return amount * 0.21;
+	}
+
     @Override
     public Integer count() {
         return smartphones.keySet().size();

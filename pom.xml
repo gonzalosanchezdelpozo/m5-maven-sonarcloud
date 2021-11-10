@@ -97,6 +97,57 @@
                 </reportSets>
             </plugin>
 
+<!--            https://maven.apache.org/plugins/maven-checkstyle-plugin/index.html-->
+<!--            Plugin Checkstyle: https://checkstyle.org/-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>checkstyle</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+
+<!--            Plugin PMD-->
+<!--            http://maven.apache.org/plugins/maven-pmd-plugin/index.html-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.15.0</version>
+                <configuration>
+                    <linkXRef>true</linkXRef>
+                    <rulesets>
+                        <!-- A rule set, that comes bundled with PMD -->
+                        <ruleset>/category/java/bestpractices.xml</ruleset>
+                    </rulesets>
+                    <sourceEncoding>UTF-8</sourceEncoding>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                    <targetJdk>17</targetJdk>
+                    <printFailingErrors>true</printFailingErrors>
+                    <failOnViolation>false</failOnViolation>
+                    <includeTests>false</includeTests>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                    <compileSourceRoots>
+                        <compileSourceRoot>${basedir}/src/main/java</compileSourceRoot>
+                    </compileSourceRoots>
+                </configuration>
+<!--                <reportSets>-->
+<!--                    <reportSet>-->
+<!--                        <reports>-->
+<!--                            <report>pmd</report>-->
+<!--                            <report>cpd</report>-->
+<!--                        </reports>-->
+<!--                    </reportSet>-->
+<!--                </reportSets>-->
+            </plugin>
+
         </plugins>
     </reporting>
 
@@ -164,6 +215,54 @@
                 </executions>
 
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.15.0</version>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>compile</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                            <goal>pmd</goal>-->
+<!--                            <goal>cpd</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+                <executions>
+                    <execution>
+                        <id>pmd-check</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>cpd-check</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>cpd-check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceEncoding>UTF-8</sourceEncoding>
+                    <inputEncoding>UTF-8</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                    <targetJdk>17</targetJdk>
+                    <printFailingErrors>true</printFailingErrors>
+                    <failOnViolation>false</failOnViolation>
+                    <includeTests>false</includeTests>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                    <compileSourceRoots>
+                        <compileSourceRoot>${basedir}/src/main/java</compileSourceRoot>
+                    </compileSourceRoots>
+                </configuration>
+            </plugin>
+
 
         </plugins>
     </build>
