@@ -6,6 +6,9 @@ import com.example.demo.repository.EmployeeRepository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Clase operaciones lógica negocio para entidad Employee
+ */
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;

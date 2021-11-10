@@ -12,10 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * Se utiliza el método assertThrows
  */
-class FindOneExceptionTest {
+public class FindOneExceptionTest {
 
+    /**
+     * Método para comprobar la existencia de un smartphone
+     */
     @Test
-    void findOnePhone1Test() {
+    @DisplayName("Comprobar smartphone existente se recupera correctamente")
+    public void findOnePhone1Test() {
 
         SmartPhoneServiceImpl service = new SmartPhoneServiceImpl();
 
