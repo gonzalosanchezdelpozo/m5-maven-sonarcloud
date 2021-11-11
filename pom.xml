@@ -121,7 +121,6 @@
                 <configuration>
                     <linkXRef>true</linkXRef>
                     <rulesets>
-                        <!-- A rule set, that comes bundled with PMD -->
                         <ruleset>/category/java/bestpractices.xml</ruleset>
                     </rulesets>
                     <sourceEncoding>UTF-8</sourceEncoding>
@@ -130,7 +129,9 @@
                     <targetJdk>17</targetJdk>
                     <printFailingErrors>true</printFailingErrors>
                     <failOnViolation>false</failOnViolation>
-                    <includeTests>false</includeTests>
+                    <includeTests>true</includeTests>
+<!--                    minimumTokens vale 100 por defecto-->
+                    <minimumTokens>20</minimumTokens>
                     <includes>
                         <include>**/*.java</include>
                     </includes>
@@ -138,14 +139,12 @@
                         <compileSourceRoot>${basedir}/src/main/java</compileSourceRoot>
                     </compileSourceRoots>
                 </configuration>
-<!--                <reportSets>-->
-<!--                    <reportSet>-->
-<!--                        <reports>-->
-<!--                            <report>pmd</report>-->
-<!--                            <report>cpd</report>-->
-<!--                        </reports>-->
-<!--                    </reportSet>-->
-<!--                </reportSets>-->
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.4.2.2</version>
             </plugin>
 
         </plugins>
@@ -216,20 +215,13 @@
 
             </plugin>
 
+
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.15.0</version>
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>compile</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                            <goal>pmd</goal>-->
-<!--                            <goal>cpd</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
                 <executions>
                     <execution>
                         <id>pmd-check</id>
@@ -253,7 +245,8 @@
                     <targetJdk>17</targetJdk>
                     <printFailingErrors>true</printFailingErrors>
                     <failOnViolation>false</failOnViolation>
-                    <includeTests>false</includeTests>
+                    <includeTests>true</includeTests>
+                    <minimumTokens>20</minimumTokens>
                     <includes>
                         <include>**/*.java</include>
                     </includes>

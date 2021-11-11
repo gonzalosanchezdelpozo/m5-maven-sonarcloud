@@ -24,8 +24,8 @@ public class AssumptionsTest {
     @Test
     void test1(){
         // comprobar que el entorno cumple ciertas precondiciones antes de ejecutar el test
-        String username = System.getenv("USERNAME");
-        assumeTrue(username.equals("pc_testing"));
+//        String username = System.getenv("USERNAME");
+//        assumeTrue(username.equals("pc_testing"));
 
         // ejecución del test: este código se ejecuta sólo si el USERNAME del ordenador
         // en el que se está ejecutando este test se llama "pc_testing"
@@ -42,8 +42,8 @@ public class AssumptionsTest {
     @Test
     void test2(){
         // comprobar que el entorno cumple ciertas precondiciones antes de ejecutar el test
-        String username = System.getenv("USERNAME");
-        assumeTrue(username.equals("pc_testing2"));
+//        String username = System.getenv("USERNAME");
+//        assumeTrue(username.equals("pc_testing2"));
 
         // ejecución del test: este código se ejecuta sólo si el USERNAME del ordenador
         // en el que se está ejecutando este test se llama "pc_testing2"
