@@ -37,9 +37,10 @@
         <maven.compiler.target>17</maven.compiler.target>
         <sonar.organization>alansastre</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.junit.reportsPath>target/surefire-reports/*.xml</sonar.junit.reportsPath>
         <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
-        <sonar.java.pmd.reportPaths>target/pmd.xml,target/cpd.xml</sonar.java.pmd.reportPaths>
+        <sonar.java.pmd.reportPaths>target/pmd.xml</sonar.java.pmd.reportPaths>
         <sonar.java.spotbugs.reportPaths>target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
     </properties>
 
