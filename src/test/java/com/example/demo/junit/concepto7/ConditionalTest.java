@@ -75,4 +75,9 @@ public class ConditionalTest {
     void example(){
         System.out.println("hello");
     }
+
+    @Test
+    void example2(){
+        System.out.println("hello");
+    }
 }
