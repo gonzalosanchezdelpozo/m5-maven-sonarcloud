@@ -71,4 +71,8 @@ public class ConditionalTest {
         System.out.println("test4");
         assertTrue(true);
     }
+    @Test
+    void example(){
+        System.out.println("hello");
+    }
 }
